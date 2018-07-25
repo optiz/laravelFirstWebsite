@@ -1,0 +1,1 @@
+Bar World<br> <a href="{{route('foo')}}"> Go to Foo Page</a>
