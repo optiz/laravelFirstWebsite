@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Basic Arithmetic</title>
 </head>
 <body>
 	<center>
