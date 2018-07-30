@@ -2,37 +2,40 @@
 <html>
 <head>
 	<title>Basic Arithmetic</title>
+	<style>
+	.wrapper{
+		margin: 0 auto;
+    	width: 50%;
+    	clear: both;
+	}
+	.b-a{
+	 	width: 89%;
+	 	margin-top: 6%;
+	 	padding: 5%;
+	 	float: left;
+	 	box-shadow: 0 0 10px #ccc;
+	}
+	</style>
 </head>
 <body>
-	<center>
-@if($operation=="add")
-<h1 style="color: gray; font-family: Century Gothic;">Operation: Addition</h1>
-<h3 style="font-family: Prestige Elite Std;">Addend: {{$num1}}</h3>
-<h3  style="font-family: Prestige Elite Std;">Addend: {{$num2}}</h3>
-<hr style="width: 250px;">
-<h3  style="font-family: Prestige Elite Std;">Sum: {{$sum}}</h3>
-
-@elseif($operation=="sub")
-<h1 style="color: gray; font-family: Century Gothic;">Operation: Subtraction</h1>
-<h3  style="font-family: Prestige Elite Std;">Minuend: {{$num1}}</h3>
-<h3  style="font-family: Prestige Elite Std;">Subtrahend: {{$num2}}</h3>
-<hr style="width: 250px;">
-<h3  style="font-family: Prestige Elite Std;">Difference: {{$diff}}</h3>
-
-@elseif($operation=="mul")
-<h1 style="color: gray; font-family: Century Gothic;">Operation: Multiplication</h1>
-<h3  style="font-family: Prestige Elite Std;">Multiplicand: {{$num1}}</h3>
-<h3  style="font-family: Prestige Elite Std;">Multiplier: {{$num2}}</h3>
-<hr style="width: 250px;">
-<h3  style="font-family: Prestige Elite Std;">Product: {{$mul}}</h3>
-
-@elseif($operation=="div")
-<h1 style="color: gray; font-family: Century Gothic;">Operation: Multiplication</h1>
-<h3 style="font-family: Prestige Elite Std;">Dividend: {{$num1}}</h3>
-<h3 style="font-family: Prestige Elite Std;">Divisor: {{$num2}}</h3>
-<hr style="width: 250px;">
-<h3 style="font-family: Prestige Elite Std;">Qoutient: {{$div}}</h3>
-@endif
+<div class="wrapper">
+<div class="b-a">
+@if($operation=="op")
+<center>
+<h1 style="font-family: Prestige Elite Std;">Basic Arithmetic</h1>
 </center>
+<hr>
+<h2 style="color: gray; font-family: Century Gothic;">Input Numbers</h2>
+<h3 style="font-family: Prestige Elite Std;">: {{$num1}}</h3>
+<h3 style="font-family: Prestige Elite Std;">: {{$num2}}</h3>
+<hr>
+<h2 style="color: gray; font-family: Century Gothic;">Answer</h2>
+<h3  style="font-family: Prestige Elite Std;">Addition: {{$num1 + $num2}}</h3>
+<h3  style="font-family: Prestige Elite Std;">Substraction: {{$num1 - $num2}}</h3>
+<h3  style="font-family: Prestige Elite Std;">Multiplication: {{$num1 * $num2}}</h3>
+<h3 style="font-family: Prestige Elite Std;">Division: @if($num2 != 0){{$num1 / $num2}}@endif</h3>
+@endif
+</div>
+</div>
 </body>
 </html>

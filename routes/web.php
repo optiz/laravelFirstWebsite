@@ -49,9 +49,9 @@ Route::get('/basic-arithmetic/{operation}/{num1}/{num2}', function ($operation,$
 	return view('basic-arithmetic', 
 		   array('operation'=>$operation, 
 		   	     'num1'=>$num1,
-		   	     'num2'=>$num2, 
-		   	     'sum'=>$sum=$num1+$num2, 
-		   	     'diff'=>$diff=$num1-$num2, 
-		   	     'mul'=>$mul=$num1*$num2,
-		   	 	 'div'=>$div=$num1/$num2));
+		   	     'num2'=>$num2));
 })->name('basic-arithmetic');
+
+Route::get('/middleware/{age}', function ($age){
+	return view ('age', array('age'=>$age));
+})->middleware('age');
