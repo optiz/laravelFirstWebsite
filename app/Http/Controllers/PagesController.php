@@ -20,5 +20,20 @@ class PagesController extends Controller
 
 		return view('age', array('age'=>$age));
 	}
+
+	public function shoutoutPage(Request $request){
+		$text = $request->text;
+
+		$colors = array(
+			"red" => "means passion", //key value pair .. the "red" is thwe key and "means passion is the value"
+			"green" => "color of nature",
+			"blue" =>"color sa dagat",
+			"yellow"=>"color sa ngipon nga way toothbrush"
+		);
+		return view('shoutout', array(
+			'text' => $text,
+			'colors' => $colors
+		));
+	}
     //
 }
