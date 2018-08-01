@@ -56,10 +56,10 @@ Route::get('/middleware/{age}', function ($age){
 	return view ('age', array('age'=>$age));
 })->middleware('age');
 
-Route::get('/pages/contact', 
-	'PagesController@contactPage');
+Route::get('/pages/contact', 'PagesController@contactPage');
 
 Route::get('/pages/shoutout/{text}', 'PagesController@shoutoutPage');
 
-Route::get('/pages/middleware/{age}', 
-	'PagesController@middlewareAgePage');
+Route::get('/pages/middleware/{age}', 'PagesController@middlewareAgePage');
+
+Route::get('/crushes', 'CrushesController@index');

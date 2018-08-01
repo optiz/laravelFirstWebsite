@@ -25,7 +25,7 @@ class PagesController extends Controller
 		$text = $request->text;
 
 		$colors = array(
-			"red" => "means passion", //key value pair .. the "red" is thwe key and "means passion is the value"
+			"red" => "means passion", 
 			"green" => "color of nature",
 			"blue" =>"color sa dagat",
 			"yellow"=>"color sa ngipon nga way toothbrush"
