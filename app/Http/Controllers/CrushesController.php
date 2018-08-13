@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Crush;
+use App\Qualities;
 use Carbon\Carbon;
+use DB;
 
 class CrushesController extends Controller
 {
@@ -72,7 +74,23 @@ class CrushesController extends Controller
      */
     public function show($id)
     {
-        //
+        $crush = Crush::find($id);
+
+         
+        $data = DB::table('crushes')
+                ->join('qualities','qualities.crush_id','=','crushes.id')
+                ->select('crushes.first_name','crushes.last_name','crushes.fb_profile_link','crushes.contact_number','qualities.id','qualities.crush_qualities')
+                ->where('qualities.crush_id','=',$id)
+                ->get();
+
+        return view('crushes.show', array('crush'=>$crush))
+                                    ->with('crushes',$data);
+
+        /*echo "<pre>";
+        print_r($data);*/
+
+
+
     }
 
     /**
@@ -112,6 +130,14 @@ class CrushesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        $crush = Crush::find($id);
+        $crush->delete();
+
+        return redirect()->back();
+    }
+
+    public function destroy_quality($id)
     {
         $crush = Crush::find($id);
         $crush->delete();

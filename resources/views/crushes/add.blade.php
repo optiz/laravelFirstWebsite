@@ -3,6 +3,12 @@ a{
 	text-decoration: none;
 	color: blue;
 }
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
 .wrapper{
 	margin: 0 auto;
 	width: 40%;
@@ -15,13 +21,11 @@ a{
 	margin-top: 4%;
 	width: 90%;
 	padding: 5%;
-	border: 1px solid black;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 input[type=text]{
 	width: 100%;
 	padding: 10px 15px;
-	margin-top: 1%;
 	color: black;
 	display: inline-block;
 	font-family: century gothic;
@@ -34,9 +38,9 @@ button{
 	width: 100%;
 	background-color: #d40c0c;
 	color: white;
-	border: 1px solid #ccc;
 	font-family: century gothic;
 	padding: 10px 15px;
+	border: 1px solid #ccc ;
 	border-radius: 4px;
 	cursor: pointer;
 }
@@ -57,36 +61,28 @@ button:hover {
 </style>
 <div class="wrapper">
 	<div class="content">
-		<center>
-			<h1><span style="color:blue"> Infor</span><span style="color:red">mation</span> </h1>
-		</center>
-		@if ($errors->any())
-		<div class="alert">
-			<ul>
-				@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
-				@endforeach
-			</ul>
-		</div>
-		@endif
-			<form action="{{ $action }}" method="POST">
-				{{ csrf_field() }}
-
-				<label>Frist Name:</label><br/>
-				<input type="text" name="first_name" value="{{$crush->first_name}}"/>
-				<br/><br/>
-				<label>Last Name:</label><br/>
-				<input type="text" name="last_name" value="{{$crush->last_name}}"/>
-				<br/><br/>
-				<label>FB Profile Link:</label><br/>
-				<input type="text" name="fb_profile_link" value="{{$crush->fb_profile_link}}"/>
-				<br/><br/>
-				<label>Contact Number:</label><br/>
-				<input type="text" name="contact_number" value="{{$crush->contact_number}}"/>
+		<form action="{{ $action }}" method="POST">
+			{{ csrf_field() }} 
+				<center>
+					<h1><span style="color:blue"> Crush</span><span style="color:red"> Qualities</span> </h1>
+				</center>
+				<hr>
+				<input type="hidden" name="crush_id" value="{{$id}}"/>
+				<input type="text" name="crush_qualities" value=""/>
 				<br/><br/>
 				<button type="submit">{{$submit_text}}</button>
-			</form>
+		</form>
+				<br/>
+				@if ($errors->any())
+				<div class="alert">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
+		
 	</div>
 	<br/><br/>
-	<center><a href="{{route('crushes.index')}}">Return to Table Page</a></center>
 </div>
